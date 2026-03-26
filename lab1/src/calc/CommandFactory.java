@@ -13,9 +13,9 @@ public class CommandFactory {
 
     public CommandFactory() throws CalcException {
         Properties properties = new Properties();
-        try (InputStream in = getClass().getResourceAsStream("factory.properties")) {
+        try (InputStream in = getClass().getResourceAsStream("/calc/factory.properties")) {
             if (in == null) {
-                throw new CalcException("Файл конфигурации 'factory.properties' не найден");
+                throw new CalcException("Файл конфигурации '/calc/factory.properties' не найден");
             }
             properties.load(in);
             for (String commandName : properties.stringPropertyNames()) {

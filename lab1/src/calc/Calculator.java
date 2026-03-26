@@ -33,12 +33,10 @@ public class Calculator {
                 System.arraycopy(parts, 1, args, 0, parts.length - 1);
 
                 try {
-                    logger.info("Выполнение команды: " + line);
                     Command command = factory.createCommand(commandName);
                     command.execute(context, args);
                 } catch (CalcException e) {
-                    logger.warning("Ошибка: " + e.getMessage());
-                    System.err.println("Ошибка: " + e.getMessage());
+                    logger.warning(e.getMessage());
                 }
             }
         }
